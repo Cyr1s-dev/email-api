@@ -9,6 +9,10 @@ const redis = new Redis({
 
 export async function POST(request) {
   try {
+    const auth = request.headers.get('Authorization');
+    if (auth !== `Bearer ${process.env.API_SECRET}`) {
+      return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
+    }
     const body = await request.json();
     const { to, from, raw } = body;
     const parser = new PostalMime();
