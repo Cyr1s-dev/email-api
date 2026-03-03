@@ -1,7 +1,8 @@
 export default function Home() {
   return (
-    <div style={{ padding: '20px', fontFamily: 'sans-serif' }}>
-      <h1>邮件 API 服务已启动</h1>
-    </div>
+    <main style={{ padding: '20px' }}>
+      <h1>Email API Service</h1>
+      <p>Status: Online</p>
+    </main>
   );
 }
